@@ -1,8 +1,7 @@
 // Soma de dois números
 
-const a = 5;
-const b = 5;
+function somar(a, b) {
+    return a + b;
+}
 
-const soma = a + b;
-
-console.log(`${a} + ${b} = ${soma}`)
+console.log(somar(5, 5));
