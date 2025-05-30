@@ -1,20 +1,10 @@
 // Calcular a média de três notas e mostrar se o aluno está aprovado (média >= 7)
 
-/*
-const nota_1 = prompt("Primeira nota: ")
-const nota_2 = prompt("Segunda nota: ")
-const nota_3 = prompt("Terceira nota: ")
-
-med_nota = ((nota_1 + nota_2 + nota_3) / 3)
-
-console.log(med_nota)
-*/
-
-const readline = require('readline');
+const readline = require('readline'); // módulo readline - permite que o usuário forneça dados
 
 const rl = readline.createInterface({
-     input: process.stdin,
-     output: process.stdout   
+     input: process.stdin, // entrada por teclado
+     output: process.stdout  // saída por terminal
 });
 
 rl.question('Primeira nota: ', (nota_1) => {
