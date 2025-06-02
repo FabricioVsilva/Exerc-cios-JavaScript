@@ -1,0 +1,1 @@
+Entendendo a sintaxe de JavaScript!
