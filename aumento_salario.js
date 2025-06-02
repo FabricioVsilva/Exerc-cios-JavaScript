@@ -6,7 +6,6 @@ Programa deve perguntar o nome da pessoa e depois comprimentar com o nome median
 <= 3400: Aumento de 5%
 */
 
-
 const readline = require('readline');
 
 rl = readline.createInterface({
@@ -14,52 +13,39 @@ rl = readline.createInterface({
     output: process.stdout
 });
 
-function pergunta_usuario() {
+function perguntarSalario(nome) {
+    rl.question(`${nome}, qual é o seu salário? `, function(valor_salario) {
+        valor_salario = parseFloat(valor_salario);
 
-    let agora = new Date().getHours();
+        if (valor_salario <= 2000) {
+            console.log('Parabéns! Você vai receber 30% de aumento!');
+        } else if (valor_salario <= 2800) {
+            console.log('Parabéns! Você vai receber 15% de aumento!');
+        } else {
+            console.log('Parabéns! Você vai receber 5% de aumento!');
+        }
+        rl.close(); // Finaliza o programa
+    });
+}
 
-    if (agora >= 5 && agora <= 12) {
-        rl.question('Bom dia! Qual é o seu nome? ', function(resposta) {
-            rl.question(`${resposta}, qual é o seu salário? `, function(valor_salario) {
-                if (valor_salario <= 2000) {
-                    console.log('Parabéns! Você vai receber 30% de aumento!')
-                } else if (valor_salario > 2000 && valor_salario <= 2800) {
-                    console.log('Parabéns! Você vai receber 15% de aumento!')
-                } else {
-                    console.log('Parabéns! Você vai receber 5% de aumento!')
-                };
-            });
-        });
-        
-    } else if (agora > 12 && agora <= 18) {
-        rl.question('Boa tarde! Qual é o seu nome? ', function(resposta) {
-            rl.question(`${resposta}, qual é o seu salário? `, function(valor_salario) {
-                if (valor_salario <= 2000) {
-                    console.log('Parabéns! Você vai receber 30% de aumento!')
-                } else if (valor_salario > 2000 && valor_salario <= 2800) {
-                    console.log('Parabéns! Você vai receber 15% de aumento!')
-                } else {
-                    console.log('Parabéns! Você vai receber 5% de aumento!')
-                };
-            });
-        });
+function cumprimentarEExecutar() {
+    let hora = new Date().getHours();
+    let saudacao = '';
 
+    if (hora >= 5 && hora <= 12) {
+        saudacao = 'Bom dia';
+    } else if (hora > 12 && hora <= 18) {
+        saudacao = 'Boa tarde';
     } else {
-         rl.question('Boa noite! Qual é o seu nome? ', function(resposta) {
-            rl.question(`${resposta}, qual é o seu salário? `, function(valor_salario) {
-                if (valor_salario <= 2000) {
-                    console.log('Parabéns! Você vai receber 30% de aumento!')
-                } else if (valor_salario > 2000 && valor_salario <= 2800) {
-                    console.log('Parabéns! Você vai receber 15% de aumento!')
-                } else {
-                    console.log('Parabéns! Você vai receber 5% de aumento!')
-                };
-            });
-        });
+        saudacao = 'Boa noite';
     }
-};
-pergunta_usuario();
 
+    rl.question(`${saudacao}! Qual é o seu nome? `, function(nome) {
+        perguntarSalario(nome);
+    });
+}
+
+cumprimentarEExecutar();
 
 
 
