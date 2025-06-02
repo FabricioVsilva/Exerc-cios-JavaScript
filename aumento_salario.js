@@ -1,5 +1,5 @@
 /*
-Programa deve perguntar o nome da pessoa e depois comprimentar com o nome mediante o horário e dar bom dia, boa tarde e boa noite! 
+Programa deve perguntar o nome da pessoa e depois comprimentar com o nome mediante o horário e dar bom dia, boa tarde ou boa noite! 
 
 < 2000: Aumento de 30%
 <= 2800: Aumento de 15%
