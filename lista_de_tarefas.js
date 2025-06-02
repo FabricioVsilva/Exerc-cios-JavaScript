@@ -1,11 +1,11 @@
-readline = require('readline');
+const readline = require('readline') // chamando a biblioteca do node.js.
 
 rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
 });
 
-let tarefas = [];
+let tarefas = []; // Array fazio em que vou guardar as tarefas
 
 function mostrarMenu() {
     console.log(`
@@ -25,28 +25,29 @@ function mostrarMenu() {
                 console.log('Tarefa adicionada!');
                 mostrarMenu();
             });
-
+            
         } else if(opcao === '2') {
             console.log('\n=== TAREFAS ===');
-            tarefas.forEach((t, i) => {
-                console.log(`${i + 1}. ${t}`);
+            tarefas.forEach((t, i) => {    // T: Tarefas I; Indíce.
+                console.log(`${i + 1}. ${t}`); // Vou percorrer o array
             });
+
             mostrarMenu();
         } else if (opcao === '3') {
             if (tarefas.length === 0) {
                 console.log('Nenhuma tarefa para remover.');
                 return mostrarMenu();
             }
-
             tarefas.forEach((t, i) => {
                 console.log(`${i + 1}. ${t}`);
             });
+
             rl.question('Digite o número da tarefa que deseja remover: ', function(numero) {
               const index = parseInt(numero) -1;
               if (index >= 0 && index < tarefas.length) {
                 tarefas.splice(index, 1);
                 console.log('Tarefa removida!');
-              }  
+              }
               mostrarMenu();
             });
 
@@ -58,7 +59,6 @@ function mostrarMenu() {
             mostrarMenu();
         }
     });
-
 }
 mostrarMenu();
 
